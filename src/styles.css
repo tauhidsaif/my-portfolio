@@ -1,0 +1,8 @@
+/* src/styles.css */
+@import "animate.css"; /* Must come before Tailwind for animations */
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366f1; /* Indigo */
+  --color-secondary: #06b6d4; /* Cyan */
+}

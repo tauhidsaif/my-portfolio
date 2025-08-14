@@ -1,923 +1,1671 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tohid | Portfolio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tohid | Portfolio</title>
 
-  <!-- Tailwind CSS -->
-  <link rel="stylesheet" href="./dist/output.css"/>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./dist/output.css" />
 
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css"/>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css" />
 
-  <!-- Favicon (optional) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>"/>
+    <!-- Favicon (optional) -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>"
+    />
 
-  <style>
-    /* =============================================================
+    <style>
+      /* =============================================================
        GLOBAL BACKGROUND + THEME (MATCHED ACROSS ALL SECTIONS)
        ============================================================= */
-    :root {
-      --bg1: rgba(168,85,247,0.16);
-      --bg2: rgba(6,182,212,0.16);
-      --base: #0f172a;
-      --ring: rgba(168,85,247,0.45);
-      --text: #ffffff;
-      --muted: #cbd5e1;
-    }
-    html { color-scheme: dark; }
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(90rem 90rem at 20% 10%, var(--bg1) 0%, transparent 40%),
-        radial-gradient(70rem 70rem at 80% 90%, var(--bg2) 0%, transparent 40%),
-        var(--base);
-      color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
-      overflow-x: hidden;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+      :root {
+        --bg1: rgba(168, 85, 247, 0.16);
+        --bg2: rgba(6, 182, 212, 0.16);
+        --base: #0f172a;
+        --ring: rgba(168, 85, 247, 0.45);
+        --text: #ffffff;
+        --muted: #cbd5e1;
+      }
+      html {
+        color-scheme: dark;
+      }
+      body {
+        min-height: 100vh;
+        background: radial-gradient(
+            90rem 90rem at 20% 10%,
+            var(--bg1) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            70rem 70rem at 80% 90%,
+            var(--bg2) 0%,
+            transparent 40%
+          ),
+          var(--base);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        overflow-x: hidden;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
 
-    /* Focus visibility for keyboard users */
-    :where(a, button, input, textarea, select) {
-      outline: none;
-    }
-    :where(a, button, input, textarea, select):focus-visible {
-      box-shadow: 0 0 0 3px rgba(168,85,247,.5);
-      border-radius: .75rem;
-    }
+      /* Focus visibility for keyboard users */
+      :where(a, button, input, textarea, select) {
+        outline: none;
+      }
+      :where(a, button, input, textarea, select):focus-visible {
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.5);
+        border-radius: 0.75rem;
+      }
 
-    /* ===== Reusable Effects ===== */
-    .glass {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-    .btn {
-      background: linear-gradient(90deg, #a855f7, #06b6d4);
-      border-radius: 12px;
-      padding: 0.9rem 1.4rem;
-      font-weight: 700;
-      color: white;
-      letter-spacing: 0.3px;
-      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
-      box-shadow: 0 0 0 0 rgba(168,85,247,0);
-      will-change: transform, box-shadow;
-      display: inline-flex; align-items: center; gap: .5rem;
-    }
-    .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 28px rgba(168,85,247,0.45), 0 0 50px rgba(6,182,212,0.35);}    
-    .btn:active { transform: translateY(-1px) scale(0.99); }
-    .btn[disabled], .btn:disabled { filter: grayscale(1) contrast(.8); cursor: not-allowed; }
+      /* ===== Reusable Effects ===== */
+      .glass {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+      .btn {
+        background: linear-gradient(90deg, #a855f7, #06b6d4);
+        border-radius: 12px;
+        padding: 0.9rem 1.4rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.3px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          filter 0.25s ease;
+        box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+        will-change: transform, box-shadow;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 0 28px rgba(168, 85, 247, 0.45),
+          0 0 50px rgba(6, 182, 212, 0.35);
+      }
+      .btn:active {
+        transform: translateY(-1px) scale(0.99);
+      }
+      .btn[disabled],
+      .btn:disabled {
+        filter: grayscale(1) contrast(0.8);
+        cursor: not-allowed;
+      }
 
-    .btn-outline {
-      border: 2px solid rgba(255,255,255,0.15);
-      background: linear-gradient(90deg, rgba(168,85,247,0.12), rgba(6,182,212,0.12));
-    }
+      .btn-outline {
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        background: linear-gradient(
+          90deg,
+          rgba(168, 85, 247, 0.12),
+          rgba(6, 182, 212, 0.12)
+        );
+      }
 
-    .gradient-text {
-      background: linear-gradient(270deg, #a855f7, #06b6d4, #f472b6, #38bdf8, #a855f7);
-      background-size: 600% 600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientMove 10s ease infinite;
-    }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+      .gradient-text {
+        background: linear-gradient(
+          270deg,
+          #a855f7,
+          #06b6d4,
+          #f472b6,
+          #38bdf8,
+          #a855f7
+        );
+        background-size: 600% 600%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientMove 10s ease infinite;
+      }
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-    /* Fancy gradient border utility */
-    .gradient-ring {
-      position: relative;
-      border-radius: 1.25rem;
-      isolation: isolate;
-    }
-    .gradient-ring::before {
-      content: "";
-      position: absolute; inset: -2px;
-      background: conic-gradient(from 0deg, #a855f7, #06b6d4, #f472b6, #a855f7);
-      filter: blur(12px);
-      opacity: .45;
-      border-radius: inherit;
-      z-index: -1;
-      transition: opacity .3s ease;
-    }
-    .gradient-ring:hover::before { opacity: .7; }
+      /* Fancy gradient border utility */
+      .gradient-ring {
+        position: relative;
+        border-radius: 1.25rem;
+        isolation: isolate;
+      }
+      .gradient-ring::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: conic-gradient(
+          from 0deg,
+          #a855f7,
+          #06b6d4,
+          #f472b6,
+          #a855f7
+        );
+        filter: blur(12px);
+        opacity: 0.45;
+        border-radius: inherit;
+        z-index: -1;
+        transition: opacity 0.3s ease;
+      }
+      .gradient-ring:hover::before {
+        opacity: 0.7;
+      }
 
-    /* SlideDown for mobile menu */
-    @keyframes slideDown {
-      0% { transform: translateY(-15px); opacity: 0;}
-      100% { transform: translateY(0); opacity: 1;}
-    }
-    .animate-slideDown { animation: slideDown .28s ease-out; }
+      /* SlideDown for mobile menu */
+      @keyframes slideDown {
+        0% {
+          transform: translateY(-15px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-slideDown {
+        animation: slideDown 0.28s ease-out;
+      }
 
-    /* Subtle card hover */
-    .card {
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-      border-color: rgba(255,255,255,0.12);
-    }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 60px rgba(0,0,0,0.35); border-color: rgba(168,85,247,0.35); }
+      /* ===== COOL MOBILE MENU ANIMATION UPGRADE ===== */
+      /* ===== COOL MOBILE MENU ANIMATION (VERTICAL THEME MATCH) ===== */
+      @keyframes menuSlideIn {
+        0% {
+          transform: translateY(-30px) scale(0.95);
+          opacity: 0;
+          filter: blur(8px);
+        }
+        50% {
+          transform: translateY(5px) scale(1.02);
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+          filter: blur(0);
+        }
+      }
+      @keyframes menuSlideOut {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+          filter: blur(0);
+        }
+        50% {
+          transform: translateY(5px) scale(0.98);
+          opacity: 0.5;
+          filter: blur(4px);
+        }
+        100% {
+          transform: translateY(-30px) scale(0.95);
+          opacity: 0;
+          filter: blur(8px);
+        }
+      }
+      @keyframes menuLinkFade {
+        0% {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      #menu.cool-active {
+        animation: menuSlideIn 0.45s cubic-bezier(0.23, 1.32, 0.7, 1) forwards;
+      }
+      #menu.cool-closing {
+        animation: menuSlideOut 0.35s ease forwards;
+      }
+      #menu.cool-active a {
+        animation: menuLinkFade 0.4s ease forwards;
+      }
+      #menu.cool-active a:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      #menu.cool-active a:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      #menu.cool-active a:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      #menu.cool-active a:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      #menu.cool-active a:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      #menu.cool-active a:nth-child(6) {
+        animation-delay: 0.3s;
+      }
 
-    /* Project image zoom */
-    .zoom-wrap img { transition: transform .6s ease; }
-    .zoom-wrap:hover img { transform: scale(1.09); }
+      /* Menu background to match existing dark-glass theme */
+      /* === Force mobile menu links to stack vertically (append-only) === */
+      /* === Always prepare mobile menu for vertical stacking === */
+      #menu {
+        display: flex; /* prepared layout */
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: nowrap;
+      }
 
-    /* Cursor blob for fun */
-    .cursor-blob {
-      position: fixed; inset: 0 auto auto 0;
-      width: 22vmax; height: 22vmax;
-      pointer-events: none;
-      background: radial-gradient(40% 40% at 50% 50%, rgba(168,85,247,.35), transparent 70%);
-      mix-blend-mode: screen;
-      filter: blur(26px);
-      transform: translate(-50%, -50%);
-      z-index: 20;
-      opacity: .55;
-      transition: opacity .25s ease;
-    }
+      #menu.hidden {
+        display: none; /* hide only when Tailwind 'hidden' is active */
+      }
 
-    /* Marquee (CSS only) */
-    .marquee { overflow: hidden; position: relative; }
-    .marquee-track {
-      display: flex; gap: 2.5rem; white-space: nowrap;
-      animation: marquee 28s linear infinite;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0%); }
-      to { transform: translateX(-50%); }
-    }
+      #menu > a {
+        display: block;
+        width: 100%;
+      }
 
-    /* Section paddings aligned */
-    section { position: relative; padding-top: 6rem; padding-bottom: 6rem; }
-    .section-title { letter-spacing: .3px; }
+      #menu > a.btn {
+        display: block;
+        text-align: center;
+      }
 
-    /* Floating shapes (pure CSS) */
-    .floaty { position:absolute; border-radius: 9999px; filter: blur(30px); opacity:.18; animation: floaty 12s ease-in-out infinite; }
-    @keyframes floaty {
-      0%,100% { transform: translateY(0) translateX(0) scale(1);}    
-      50% { transform: translateY(-16px) translateX(8px) scale(1.06);}    
-    }
+      /* Subtle card hover */
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+        border-color: rgba(168, 85, 247, 0.35);
+      }
 
-    /* Reduce motion support */
-    @media (prefers-reduced-motion: reduce) {
-      .cursor-blob, .marquee-track, .zoom-wrap img, .card, .gradient-text { animation: none !important; transition: none !important; }
-    }
+      /* Project image zoom */
+      .zoom-wrap img {
+        transition: transform 0.6s ease;
+      }
+      .zoom-wrap:hover img {
+        transform: scale(1.09);
+      }
 
-    /* Utility: hide-only-visually (for skip link target headings etc.) */
-    .sr-only-focusable:active, .sr-only-focusable:focus {
-      position: static !important; width: auto !important; height: auto !important; margin: 0 !important; overflow: visible !important; clip: auto !important; white-space: normal !important;
-    }
+      /* Cursor blob for fun */
+      .cursor-blob {
+        position: fixed;
+        inset: 0 auto auto 0;
+        width: 22vmax;
+        height: 22vmax;
+        pointer-events: none;
+        background: radial-gradient(
+          40% 40% at 50% 50%,
+          rgba(168, 85, 247, 0.35),
+          transparent 70%
+        );
+        mix-blend-mode: screen;
+        filter: blur(26px);
+        transform: translate(-50%, -50%);
+        z-index: 20;
+        opacity: 0.55;
+        transition: opacity 0.25s ease;
+      }
 
-    /* Responsive tweaks for mobile header spacing */
-    @media (max-width: 640px) {
-      #site-header .max-w-7xl { padding-left: 0.75rem; padding-right: 0.75rem; }
-      .btn { padding: 0.7rem 1rem; }
-    }
-  </style>
-</head>
+      /* Marquee (CSS only) */
+      .marquee {
+        overflow: hidden;
+        position: relative;
+      }
+      .marquee-track {
+        display: flex;
+        gap: 2.5rem;
+        white-space: nowrap;
+        animation: marquee 28s linear infinite;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
 
-<body>
-  <!-- Skip to content (accessibility) -->
-  <a href="#home" class="sr-only sr-only-focusable focus-visible:opacity-100 focus-visible:p-2 focus-visible:rounded-lg focus-visible:bg-black/50 focus-visible:text-white">Skip to content</a>
+      /* Section paddings aligned */
+      section {
+        position: relative;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+      .section-title {
+        letter-spacing: 0.3px;
+      }
 
-  <!-- Cursor blob -->
-  <div id="blob" class="cursor-blob" aria-hidden="true"></div>
+      /* Floating shapes (pure CSS) */
+      .floaty {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(30px);
+        opacity: 0.18;
+        animation: floaty 12s ease-in-out infinite;
+      }
+      @keyframes floaty {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0) scale(1);
+        }
+        50% {
+          transform: translateY(-16px) translateX(8px) scale(1.06);
+        }
+      }
 
-  <!-- HEADER -->
-  <header id="site-header" class="fixed w-full z-50 backdrop-blur-md bg-gradient-to-r from-gray-900/75 via-gray-800/65 to-gray-900/75 border-b border-white/10 shadow-lg supports-[backdrop-filter]:bg-gray-900/55">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-      <!-- Logo -->
-      <a href="#home" class="text-3xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent tracking-wide hover:scale-105 transition-transform duration-300" aria-label="Go to home">
-        Tohid<span class="sr-only"> Home</span>
-      </a>
+      /* Reduce motion support */
+      @media (prefers-reduced-motion: reduce) {
+        .cursor-blob,
+        .marquee-track,
+        .zoom-wrap img,
+        .card,
+        .gradient-text {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-6 text-[1.05rem] font-medium" aria-label="Primary">
-        <a href="#home" class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link" aria-current="page">Home</a>
-        <a href="#about" class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link">About</a>
-        <a href="#skills" class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link">Skills</a>
-        <a href="#projects" class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link">Projects</a>
-        <a href="#contact" class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link">Contact</a>
-        <a href="./resume/resume.pdf" target="_blank" class="btn btn-outline hidden lg:inline-flex items-center nav-link" rel="nofollow noopener">Download CV</a>
-      </nav>
+      /* Utility: hide-only-visually (for skip link target headings etc.) */
+      .sr-only-focusable:active,
+      .sr-only-focusable:focus {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        clip: auto !important;
+        white-space: normal !important;
+      }
 
-      <!-- Mobile Menu Button -->
-      <div class="flex items-center gap-3">
-        <button id="theme-toggle" class="hidden sm:inline-flex btn btn-outline" aria-pressed="false" aria-label="Toggle theme" title="Toggle theme">Theme</button>
+      /* Responsive tweaks for mobile header spacing */
+      @media (max-width: 640px) {
+        #site-header .max-w-7xl {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+        .btn {
+          padding: 0.7rem 1rem;
+        }
+      }
+    </style>
+  </head>
 
-        <button id="menu-btn" class="md:hidden text-3xl text-purple-300 hover:text-purple-400 transition-colors duration-200" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">&#9776;</button>
-      </div>
-    </div>
+  <body>
+    <!-- Skip to content (accessibility) -->
+    <a
+      href="#home"
+      class="sr-only sr-only-focusable focus-visible:opacity-100 focus-visible:p-2 focus-visible:rounded-lg focus-visible:bg-black/50 focus-visible:text-white"
+      >Skip to content</a
+    >
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="menu" class="hidden flex-col bg-gradient-to-b from-gray-900/85 via-gray-800/85 to-gray-900/85 backdrop-blur-xl text-gray-300 md:hidden px-6 pb-6 pt-3 space-y-3 rounded-b-2xl shadow-lg animate-slideDown" role="dialog" aria-modal="true" aria-hidden="true">
-      <a href="#home" class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2">🏠 Home</a>
-      <a href="#about" class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2">ℹ️ About</a>
-      <a href="#skills" class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2">🧰 Skills</a>
-      <a href="#projects" class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2">💼 Projects</a>
-      <a href="#contact" class="py-2 hover:text-purple-300 transition-all rounded-md pl-2">📞 Contact</a>
-      <a href="./resume/resume.pdf" class="btn btn-outline inline-flex w-max mt-1">Download CV</a>
-    </div>
-  </header>
+    <!-- Cursor blob -->
+    <div id="blob" class="cursor-blob" aria-hidden="true"></div>
 
-  <!-- FLOATING SHAPES -->
-  <div class="floaty w-64 h-64 bg-purple-500/30 -z-10 top-24 left-6" aria-hidden="true"></div>
-  <div class="floaty w-80 h-80 bg-cyan-500/30 -z-10 bottom-10 right-10" style="animation-delay: -3s;" aria-hidden="true"></div>
+    <!-- HEADER -->
+    <header
+      id="site-header"
+      class="fixed w-full z-50 backdrop-blur-md bg-gradient-to-r from-gray-900/75 via-gray-800/65 to-gray-900/75 border-b border-white/10 shadow-lg supports-[backdrop-filter]:bg-gray-900/55"
+    >
+      <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+        <!-- Logo -->
+        <a
+          href="#home"
+          class="text-3xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent tracking-wide hover:scale-105 transition-transform duration-300"
+          aria-label="Go to home"
+        >
+          Tohid<span class="sr-only"> Home</span>
+        </a>
 
-  <!-- HERO -->
-  <section id="home" class="min-h-[92vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 md:px-10">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-xs sm:text-sm tracking-[0.35em] uppercase text-gray-400 animate__animated animate__fadeInDown">Frontend • React • Node</p>
-      <h1 class="mt-3 text-4xl sm:text-5xl md:text-7xl font-extrabold animate__animated animate__fadeInDown gradient-text leading-tight">
-        Hi, I’m <span class="underline decoration-purple-400/40 decoration-4 underline-offset-8">Tohid</span> — I craft
-        <span class="whitespace-nowrap">fast & gorgeous</span> web experiences.
-      </h1>
-      <p class="mt-5 text-base sm:text-lg md:text-2xl text-gray-300 animate__animated animate__fadeInUp">
-        I build modern, high-performance websites with delightful micro-interactions, buttery scrolls, and clean code.
-      </p>
+        <!-- Desktop Navigation -->
+        <nav
+          class="hidden md:flex items-center gap-6 text-[1.05rem] font-medium"
+          aria-label="Primary"
+        >
+          <a
+            href="#home"
+            class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link"
+            aria-current="page"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-300 hover:text-purple-300 transition-colors duration-200 nav-link"
+            >Contact</a
+          >
+          <a
+            href="./resume/resume.pdf"
+            target="_blank"
+            class="btn btn-outline hidden lg:inline-flex items-center nav-link"
+            rel="nofollow noopener"
+            >Download CV</a
+          >
+        </nav>
 
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate__animated animate__zoomIn">
-        <a href="#projects" class="btn magnetic">View My Work</a>
-        <a href="https://wa.me/919548065207" target="_blank" class="btn btn-outline magnetic">Let’s Collaborate</a>
-      </div>
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center gap-3">
+          <a
+            href="https://wa.me/919548065207"
+            target="_blank"
+            class="hidden sm:inline-flex btn btn-outline items-center gap-2"
+            title="Chat on WhatsApp"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp text-green-400"></i>
+            Chat Now
+          </a>
 
-      <!-- Stats row -->
-      <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 max-w-xl mx-auto gap-3 sm:gap-4">
-        <div class="glass rounded-2xl p-4">
-          <div class="text-2xl sm:text-3xl font-extrabold">20+</div>
-          <div class="text-xs sm:text-sm text-gray-300">Projects</div>
+          <button
+            id="menu-btn"
+            class="md:hidden text-3xl text-purple-300 hover:text-purple-400 transition-colors duration-200"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="menu"
+          >
+            &#9776;
+          </button>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-2xl sm:text-3xl font-extrabold">5⭐</div>
-          <div class="text-xs sm:text-sm text-gray-300">Client Rating</div>
-        </div>
-        <div class="glass rounded-2xl p-4 col-span-2 sm:col-span-1">
-          <div class="text-2xl sm:text-3xl font-extrabold">~1s</div>
-          <div class="text-xs sm:text-sm text-gray-300">TTI Targets</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-6 animate-bounce text-gray-400" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="px-4 sm:px-6 md:px-10">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
-    
-<!-- Main About Card - Clean Version -->
-<div class="relative glass rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-white/10 backdrop-blur-xl overflow-hidden group">
-
-  <!-- Optional soft floating circles -->
-  <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-white/10 opacity-20 blur-3xl animate-blob"></div>
-  <div class="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/10 opacity-20 blur-3xl animate-blob animation-delay-2000"></div>
-
-  <!-- Header -->
-  <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-white drop-shadow-lg">
-    About Me
-  </h2>
-
-  <!-- Paragraph -->
-  <p class="text-gray-200 leading-relaxed text-lg">
-    I’m a <span class="text-white font-semibold">frontend-focused web developer</span> who thrives on performance, pixel-perfect UI, and snappy interactions.  
-    My toolkit: <strong class="text-white">HTML</strong>, <strong class="text-white">CSS</strong>, <strong class="text-white">JavaScript</strong>, <strong class="text-white">Tailwind</strong>, <strong class="text-white">React</strong>, <strong class="text-white">Node</strong>.  
-    I love taking ideas from concept to production with clean, scalable code and animations that enhance — not distract ✨.
-  </p>
-
-  <!-- Features / Highlights -->
-  <ul class="mt-6 space-y-2 text-gray-300 text-base">
-    <li class="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300">
-      <span class="text-green-400 text-xl drop-shadow-md">✅</span> Responsive by default, accessibility-first
-    </li>
-    <li class="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300">
-      <span class="text-yellow-400 text-xl drop-shadow-md">⚡</span> Lighthouse-friendly, optimized assets
-    </li>
-    <li class="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300">
-      <span class="text-pink-400 text-xl drop-shadow-md">🎯</span> Micro-interactions that feel <em class="text-white">alive</em>
-    </li>
-  </ul>
-
-  <!-- Buttons -->
-  <div class="mt-8 flex flex-col sm:flex-row gap-4">
-    <a href="https://github.com/tauhidsaif?tab=repositories" target="_blank" class="btn magnetic bg-white text-gray-900 shadow-xl hover:bg-gray-200 hover:scale-105 transition-transform duration-300">
-      See Projects
-    </a>
-    <a href="#contact" class="btn btn-outline magnetic border border-white text-white hover:bg-white/10 hover:scale-105 transition-transform duration-300">
-      Hire Me
-    </a>
-  </div>
-</div>
-
-<!-- Optional animate-blob CSS -->
-<style>
-  @keyframes blob {
-    0%, 100% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(20px, -15px) scale(1.05); }
-    66% { transform: translate(-15px, 15px) scale(0.95); }
-  }
-  .animate-blob {
-    animation: blob 8s infinite;
-  }
-  .animation-delay-2000 { animation-delay: 2s; }
-</style>
-
-
-
-    <!-- Side Info Cards -->
-  <div class="grid gap-6 content-start">
-  
-  <!-- Card 1: New Third Card (added first) -->
-  <div class="glass rounded-3xl p-6 sm:p-8 md:p-8 card h-full border border-white/10 hover:border-purple-400/40 transition-all duration-300">
-    <h3 class="text-xl sm:text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-      Fun / Projects
-    </h3>
-    <p class="text-gray-200">
-      Experimenting with creative animations, interactive web apps, and side projects like <span class="text-cyan-300 font-semibold">portfolio upgrades</span> and small games.
-    </p>
-  </div>
-
-  <!-- Card 2: What I’m Good At -->
-  <div class="glass rounded-3xl p-6 sm:p-8 md:p-8 card h-full border border-white/10 hover:border-pink-400/40 transition-all duration-300">
-    <h3 class="text-xl sm:text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-300">
-      What I’m Good At
-    </h3>
-    <p class="text-gray-200">
-      UI engineering, component systems, performance audits, GSAP magic, and translating business needs into delightful UX.
-    </p>
-  </div>
-
-  <!-- Card 3: Currently Learning -->
-  <div class="glass rounded-3xl p-6 sm:p-8 md:p-8 card h-full border border-white/10 hover:border-cyan-400/40 transition-all duration-300">
-    <h3 class="text-xl sm:text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">
-      Currently Learning
-    </h3>
-    <p class="text-gray-200">
-      Advanced React patterns, Zustand, ScrollTrigger animation timelines, and high-throughput WebRTC (for <span class="text-pink-300 font-semibold">FlashDrop ⚡</span>).
-    </p>
-  </div>
-
-</div>
-
-
-  </div>
-</section>
-
-
-  <!-- SKILLS MARQUEE -->
-  <!-- Devicon CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
-<section id="skills" class="px-4 sm:px-6 md:px-10">
-  <div class="max-w-7xl mx-auto">
-    
-    <!-- Heading -->
-    <h2 class="section-title text-4xl md:text-5xl font-extrabold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-300 drop-shadow-lg">
-      ⚡ Skills & Tools
-    </h2>
-
-    <!-- Marquee -->
-    <div class="marquee glass rounded-3xl p-6 shadow-xl border border-white/10 backdrop-blur-xl overflow-hidden relative">
-      <div class="marquee-track flex gap-4 items-center" role="list" aria-label="skills">
-
-        <!-- HTML5 -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-pink-500/20 hover:to-purple-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-html5-plain colored text-xl"></i> HTML5
-        </span>
-
-        <!-- CSS3 -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-blue-500/20 hover:to-cyan-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-css3-plain colored text-xl"></i> CSS3
-        </span>
-
-        <!-- JavaScript -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-yellow-500/20 hover:to-orange-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-javascript-plain colored text-xl"></i> JavaScript
-        </span>
-
-        <!-- Tailwind -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-cyan-500/20 hover:to-blue-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-tailwindcss-plain colored text-xl"></i> Tailwind
-        </span>
-
-        <!-- React -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-blue-500/20 hover:to-indigo-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-react-original colored text-xl"></i> React
-        </span>
-
-        <!-- GSAP (no Devicon, using FontAwesome bolt icon) -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-green-500/20 hover:to-emerald-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="fa-solid fa-bolt text-green-400"></i> GSAP
-        </span>
-
-        <!-- Node.js -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-green-500/20 hover:to-lime-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-nodejs-plain colored text-xl"></i> Node.js
-        </span>
-
-        <!-- Express -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-gray-500/20 hover:to-gray-700/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-express-original text-gray-300 text-xl"></i> Express
-        </span>
-
-        <!-- Git -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-orange-500/20 hover:to-red-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-git-plain colored text-xl"></i> Git
-        </span>
-
-        <!-- Vite -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-purple-500/20 hover:to-pink-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-vitejs-plain colored text-xl"></i> Vite
-        </span>
-
-        <!-- MongoDB -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-green-500/20 hover:to-teal-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="devicon-mongodb-plain colored text-xl"></i> MongoDB
-        </span>
-
-        <!-- WebRTC (no Devicon, using FontAwesome video icon) -->
-        <span class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-red-500/20 hover:to-pink-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default" role="listitem">
-          <i class="fa-solid fa-video text-pink-400"></i> WebRTC
-        </span>
-
       </div>
 
-      <!-- Gradient fade edges -->
-      <div class="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-gray-900/80 to-transparent pointer-events-none"></div>
-      <div class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-gray-900/80 to-transparent pointer-events-none"></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FontAwesome for extra icons -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous"></script>
-
-
-<!-- PROJECTS -->
-<section id="projects" class="px-4 sm:px-6 md:px-10 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-4xl md:text-5xl font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-300">
-      My Projects
-    </h2>
-
-    <div class="grid gap-8 md:grid-cols-3">
-      
-      <!-- Project 1 -->
-      <a href="https://flashdrop-t3v0.onrender.com/" target="_blank" 
-         class="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-purple-400 transition-colors">
-          FlashDrop File Transfer App
-        </h3>
-        <p class="text-gray-300 leading-relaxed">
-          A high-speed P2P file transfer app with LAN and internet modes, optimized for large files (10GB+).
-        </p>
-        <span class="mt-6 inline-block text-purple-400 font-semibold group-hover:translate-x-2 transition-transform">
-          View Project →
-        </span>
-      </a>
-
-      <!-- Project 2 -->
-      <a href="https://healthplus-atup.onrender.com/" target="_blank" 
-         class="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-pink-400 transition-colors">
-          Health Plus Medical Store Website
-        </h3>
-        <p class="text-gray-300 leading-relaxed">
-          A modern, responsive website for a medical store, featuring a sleek UI and product showcase.
-        </p>
-        <span class="mt-6 inline-block text-pink-400 font-semibold group-hover:translate-x-2 transition-transform">
-          View Project →
-        </span>
-      </a>
-
-      <!-- Project 3 -->
-      <a href="https://smart-ka46.onrender.com/" target="_blank" 
-         class="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-cyan-400 transition-colors">
-          Aadhaar PDF Data Extractor
-        </h3>
-        <p class="text-gray-300 leading-relaxed">
-          A Node.js app that extracts Aadhaar PDF data and generates smart front/back card images.
-        </p>
-        <span class="mt-6 inline-block text-cyan-400 font-semibold group-hover:translate-x-2 transition-transform">
-          View Project →
-        </span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- FEATURES / SKILLS -->
-<section id="features" class="px-4 sm:px-6 md:px-10 py-16 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto relative z-10">
-    <!-- Title -->
-    <h2 class="text-4xl md:text-5xl font-extrabold mb-14 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-300 drop-shadow-lg">
-      What I Offer
-    </h2>
-
-    <!-- Cards -->
-    <div class="grid md:grid-cols-3 gap-8">
-      
-      <!-- Card 1 -->
-      <div class="glass rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 hover:border-cyan-300/40 text-center">
-        <div class="text-5xl mb-4">💻</div>
-        <h3 class="text-xl font-semibold text-gray-100 mb-2">Web Development</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Clean, responsive, and modern websites using HTML, CSS, JavaScript, and React.
-        </p>
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="menu"
+        class="hidden flex-col bg-gradient-to-b from-gray-900/85 via-gray-800/85 to-gray-900/85 backdrop-blur-xl text-gray-300 md:hidden px-6 pb-6 pt-3 space-y-3 rounded-b-2xl shadow-lg animate-slideDown"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+      >
+        <a
+          href="#home"
+          class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a
+          href="#about"
+          class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-circle-info"></i> About
+        </a>
+        <a
+          href="#skills"
+          class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-screwdriver-wrench"></i> Skills
+        </a>
+        <a
+          href="#projects"
+          class="py-2 border-b border-gray-700 hover:text-purple-300 transition-all rounded-md pl-2 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-briefcase"></i> Projects
+        </a>
+        <a
+          href="#contact"
+          class="py-2 hover:text-purple-300 transition-all rounded-md pl-2 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-phone"></i> Contact
+        </a>
+        <a
+          href="./resume/resume.pdf"
+          class="btn btn-outline inline-flex w-max mt-1"
+        >
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
       </div>
+    </header>
 
-      <!-- Card 2 -->
-      <div class="glass rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 hover:border-purple-300/40 text-center">
-        <div class="text-5xl mb-4">⚡</div>
-        <h3 class="text-xl font-semibold text-gray-100 mb-2">Fast Performance</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Optimized code and smooth animations for lightning-fast load times.
+    <!-- FLOATING SHAPES -->
+    <div
+      class="floaty w-64 h-64 bg-purple-500/30 -z-10 top-24 left-6"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="floaty w-80 h-80 bg-cyan-500/30 -z-10 bottom-10 right-10"
+      style="animation-delay: -3s"
+      aria-hidden="true"
+    ></div>
+
+    <!-- HERO -->
+    <section
+      id="home"
+      class="min-h-[92vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 md:px-10"
+    >
+      <div class="max-w-5xl mx-auto">
+        <p
+          class="text-xs sm:text-sm tracking-[0.35em] uppercase text-gray-400 animate__animated animate__fadeInDown"
+        >
+          Frontend • React • Node
         </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="glass rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 hover:border-pink-300/40 text-center">
-        <div class="text-5xl mb-4">🎨</div>
-        <h3 class="text-xl font-semibold text-gray-100 mb-2">Beautiful Design</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Modern, elegant, and user-friendly designs that impress clients and users alike.
+        <h1
+          class="mt-3 text-4xl sm:text-5xl md:text-7xl font-extrabold animate__animated animate__fadeInDown gradient-text leading-tight"
+        >
+          Hi, I’m
+          <span
+            class="underline decoration-purple-400/40 decoration-4 underline-offset-8"
+            >Tohid</span
+          >
+          — I craft <span class="whitespace-nowrap">fast & gorgeous</span> web
+          experiences.
+        </h1>
+        <p
+          class="mt-5 text-base sm:text-lg md:text-2xl text-gray-300 animate__animated animate__fadeInUp"
+        >
+          I build modern, high-performance websites with delightful
+          micro-interactions, buttery scrolls, and clean code.
         </p>
-      </div>
 
-    </div>
-  </div>
-
-  <!-- Soft background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent pointer-events-none"></div>
-</section>
-
-
-
-  <!-- CONTACT -->
-  <section id="contact" class="px-4 sm:px-6 md:px-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-300">Contact Me</h2>
-      <p class="text-gray-300 mb-8">Let’s build something amazing together!</p>
-
-      <form id="contact-form" class="max-w-2xl mx-auto grid md:grid-cols-2 gap-4 text-left glass rounded-2xl p-6" novalidate>
-        <div class="md:col-span-1">
-          <label for="name" class="text-sm text-gray-400">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" class="w-full mt-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-purple-400 transition" required aria-required="true" autocomplete="name"/>
-          <p class="mt-1 text-xs text-red-300 hidden" id="name-error" role="alert">Please enter your name.</p>
+        <div
+          class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate__animated animate__zoomIn"
+        >
+          <a href="#projects" class="btn magnetic">View My Work</a>
+          <a
+            href="https://wa.me/919548065207"
+            target="_blank"
+            class="btn btn-outline magnetic"
+            >Let’s Collaborate</a
+          >
         </div>
-        <div class="md:col-span-1">
-          <label for="email" class="text-sm text-gray-400">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@email.com" class="w-full mt-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-purple-400 transition" required aria-required="true" autocomplete="email"/>
-          <p class="mt-1 text-xs text-red-300 hidden" id="email-error" role="alert">Enter a valid email.</p>
-        </div>
-        <div class="md:col-span-2">
-          <label for="message" class="text-sm text-gray-400">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." class="w-full mt-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-purple-400 transition" required aria-required="true"></textarea>
-          <p class="mt-1 text-xs text-red-300 hidden" id="message-error" role="alert">Please write a short message.</p>
-        </div>
-        <div class="md:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <a href="mailto:tauhidsaifi26748@gmail.com" class="btn btn-outline magnetic" id="email-direct">Email Directly</a>
-          <div class="flex items-center gap-3 w-full sm:w-auto">
-            <button type="button" id="copy-email" class="btn btn-outline magnetic flex-1 sm:flex-none">Copy Email</button>
-            <button type="submit" class="btn magnetic flex-1 sm:flex-none">Send Message</button>
+
+        <!-- Stats row -->
+        <div
+          class="mt-12 grid grid-cols-2 sm:grid-cols-3 max-w-xl mx-auto gap-3 sm:gap-4"
+        >
+          <div class="glass rounded-2xl p-4">
+            <div class="text-2xl sm:text-3xl font-extrabold">20+</div>
+            <div class="text-xs sm:text-sm text-gray-300">Projects</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-2xl sm:text-3xl font-extrabold">5⭐</div>
+            <div class="text-xs sm:text-sm text-gray-300">Client Rating</div>
+          </div>
+          <div class="glass rounded-2xl p-4 col-span-2 sm:col-span-1">
+            <div class="text-2xl sm:text-3xl font-extrabold">~1s</div>
+            <div class="text-xs sm:text-sm text-gray-300">TTI Targets</div>
           </div>
         </div>
-        <p id="form-status" class="md:col-span-2 text-sm text-center text-green-300 hidden" role="status">Thanks! I’ll get back to you soon.</p>
-      </form>
-    </div>
-  </section>
+      </div>
 
-  <!-- RESUME / CTA -->
- <section id="resume" class="px-4 sm:px-6 md:px-10">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-    
-    <!-- CV Download Card -->
-    <div class="glass rounded-2xl p-6 md:p-8 shadow-xl border border-white/10 backdrop-blur-lg transition-all duration-300 hover:scale-[1.02]">
-      <h3 class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-md">
-        Grab My CV
-      </h3>
-      <p class="text-gray-300 mt-3 leading-relaxed">
-        One page of <span class="text-white font-semibold">skills</span>, <span class="text-white font-semibold">stack</span>, and <span class="text-white font-semibold">career highlights</span>.  
-        Perfect for quick review.
-      </p>
-      <a 
-        href="./resume/resume.pdf" 
-        target="_blank" 
-        class="btn mt-5 magnetic bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/40 hover:to-blue-500/40 border border-white/10 transition-all duration-300" 
-        download 
-        rel="nofollow noopener">
-        Download CV
-      </a>
-    </div>
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-6 animate-bounce text-gray-400"
+        aria-hidden="true"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-7 w-7"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
+    </section>
 
-<!-- Availability Card with Live Clock - Modern Version -->
-<div class="glass rounded-2xl p-6 md:p-8 shadow-xl border border-white/10 backdrop-blur-lg transition-all duration-300 hover:scale-[1.02]">
+    <!-- ABOUT -->
+    <section id="about" class="px-4 sm:px-6 md:px-10">
+      <div
+        class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-10 items-stretch"
+      >
+        <!-- Main About Card - Clean Version -->
+        <div
+          class="relative glass rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-white/10 backdrop-blur-xl overflow-hidden group"
+        >
+          <!-- Optional soft floating circles -->
+          <div
+            class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-white/10 opacity-20 blur-3xl animate-blob"
+          ></div>
+          <div
+            class="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/10 opacity-20 blur-3xl animate-blob animation-delay-2000"
+          ></div>
 
-  <!-- Header -->
-  <h3 class="text-2xl sm:text-3xl font-extrabold text-white drop-shadow-md">
-    Availability
-  </h3>
-  <p class="text-gray-300 mt-3 leading-relaxed">
-    🚀 Open for <span class="font-semibold text-white">freelance</span> & <span class="font-semibold text-white">full-time</span> roles.  
-    🌍 Based in <span class="font-semibold text-white">India</span>, fully remote-friendly.
-  </p>
+          <!-- Header -->
+          <h2
+            class="section-title text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-white drop-shadow-lg"
+          >
+            About Me
+          </h2>
 
-  <!-- Live Clock -->
-  <div class="mt-6 text-center">
-    <div id="clock" class="text-3xl sm:text-4xl font-bold text-white drop-shadow-md">--:--:--</div>
-    <div class="text-gray-400 text-sm sm:text-xs mt-1">Current IST Time</div>
-  </div>
+          <!-- Paragraph -->
+          <p class="text-gray-200 leading-relaxed text-lg">
+            I’m a
+            <span class="text-white font-semibold"
+              >frontend-focused web developer</span
+            >
+            who thrives on performance, pixel-perfect UI, and snappy
+            interactions. My toolkit: <strong class="text-white">HTML</strong>,
+            <strong class="text-white">CSS</strong>,
+            <strong class="text-white">JavaScript</strong>,
+            <strong class="text-white">Tailwind</strong>,
+            <strong class="text-white">React</strong>,
+            <strong class="text-white">Node</strong>. I love taking ideas from
+            concept to production with clean, scalable code and animations that
+            enhance — not distract ✨.
+          </p>
 
-  <!-- Info Section (modern) -->
-  <div class="mt-6 flex flex-col sm:flex-row justify-between gap-4 text-center">
-    <!-- Card 1 -->
-    <div class="flex-1 rounded-xl bg-white/10 p-4 hover:bg-white/20 transition-all duration-300 shadow-md">
-      <div class="text-xl sm:text-2xl font-bold text-white mb-1">🕒 IST</div>
-      <div class="text-gray-400 text-xs">Time Zone</div>
-    </div>
+          <!-- Features / Highlights -->
+          <ul class="mt-6 space-y-2 text-gray-300 text-base">
+            <li
+              class="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300"
+            >
+              <span class="text-green-400 text-xl drop-shadow-md">✅</span>
+              Responsive by default, accessibility-first
+            </li>
+            <li
+              class="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300"
+            >
+              <span class="text-yellow-400 text-xl drop-shadow-md">⚡</span>
+              Lighthouse-friendly, optimized assets
+            </li>
+            <li
+              class="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300"
+            >
+              <span class="text-pink-400 text-xl drop-shadow-md">🎯</span>
+              Micro-interactions that feel <em class="text-white">alive</em>
+            </li>
+          </ul>
 
-    <!-- Card 2 -->
-    <div class="flex-1 rounded-xl bg-white/10 p-4 hover:bg-white/20 transition-all duration-300 shadow-md">
-      <div class="text-xl sm:text-2xl font-bold text-white mb-1">GMT+5:30</div>
-      <div class="text-gray-400 text-xs">Offset</div>
-    </div>
+          <!-- Buttons -->
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://github.com/tauhidsaif?tab=repositories"
+              target="_blank"
+              class="btn magnetic bg-white text-gray-900 shadow-xl hover:bg-gray-200 hover:scale-105 transition-transform duration-300"
+            >
+              See Projects
+            </a>
+            <a
+              href="#contact"
+              class="btn btn-outline magnetic border border-white text-white hover:bg-white/10 hover:scale-105 transition-transform duration-300"
+            >
+              Hire Me
+            </a>
+          </div>
+        </div>
 
-    <!-- Card 3 -->
-    <div class="flex-1 rounded-xl bg-white/10 p-4 hover:bg-white/20 transition-all duration-300 shadow-md">
-      <div class="text-xl sm:text-2xl font-bold text-white mb-1">~40h</div>
-      <div class="text-gray-400 text-xs">Weekly</div>
-    </div>
-  </div>
-</div>
+        <!-- Optional animate-blob CSS -->
+        <style>
+          @keyframes blob {
+            0%,
+            100% {
+              transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+              transform: translate(20px, -15px) scale(1.05);
+            }
+            66% {
+              transform: translate(-15px, 15px) scale(0.95);
+            }
+          }
+          .animate-blob {
+            animation: blob 8s infinite;
+          }
+          .animation-delay-2000 {
+            animation-delay: 2s;
+          }
+        </style>
 
-<!-- Live Clock Script -->
-<script>
-  function updateClock() {
-    const clock = document.getElementById('clock');
-    const now = new Date();
-    const istOffset = 5.5 * 60; // minutes
-    const istTime = new Date(now.getTime() + (istOffset + now.getTimezoneOffset()) * 60000);
-    const hours = String(istTime.getHours()).padStart(2, '0');
-    const minutes = String(istTime.getMinutes()).padStart(2, '0');
-    const seconds = String(istTime.getSeconds()).padStart(2, '0');
-    clock.textContent = `${hours}:${minutes}:${seconds}`;
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
-</script>
+        <!-- Side Info Cards -->
+        <div class="grid gap-6 content-start">
+          <!-- Card 1: New Third Card (added first) -->
+          <div
+            class="glass rounded-3xl p-6 sm:p-8 md:p-8 card h-full border border-white/10 hover:border-purple-400/40 transition-all duration-300"
+          >
+            <h3
+              class="text-xl sm:text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
+            >
+              Fun / Projects
+            </h3>
+            <p class="text-gray-200">
+              Experimenting with creative animations, interactive web apps, and
+              side projects like
+              <span class="text-cyan-300 font-semibold"
+                >portfolio upgrades</span
+              >
+              and small games.
+            </p>
+          </div>
 
+          <!-- Card 2: What I’m Good At -->
+          <div
+            class="glass rounded-3xl p-6 sm:p-8 md:p-8 card h-full border border-white/10 hover:border-pink-400/40 transition-all duration-300"
+          >
+            <h3
+              class="text-xl sm:text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-300"
+            >
+              What I’m Good At
+            </h3>
+            <p class="text-gray-200">
+              UI engineering, component systems, performance audits, GSAP magic,
+              and translating business needs into delightful UX.
+            </p>
+          </div>
 
-
-  </div>
-</section>
-
-
-  <!-- FOOTER -->
-  <footer class="py-10 text-center text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 glass rounded-2xl p-4">
-        <div>© <span id="year"></span> <strong>Tohid</strong>. All rights reserved.</div>
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <a href="#home" class="text-gray-300 hover:text-white">Top ↑</a>
-          <a href="https://www.instagram.com/tohid.saif/" target="_blank" class="text-gray-300 hover:text-white" aria-label="Twitter profile">Instagram</a>
-          <a href="https://github.com/tauhidsaif" target="_blank" class="text-gray-300 hover:text-white" aria-label="GitHub profile">GitHub</a>
-          <a href="https://www.linkedin.com/in/tohid-saif-018877219/" target="_blank" class="text-gray-300 hover:text-white" aria-label="LinkedIn profile">LinkedIn</a>
+          <!-- Card 3: Currently Learning -->
+          <div
+            class="glass rounded-3xl p-6 sm:p-8 md:p-8 card h-full border border-white/10 hover:border-cyan-400/40 transition-all duration-300"
+          >
+            <h3
+              class="text-xl sm:text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300"
+            >
+              Currently Learning
+            </h3>
+            <p class="text-gray-200">
+              Advanced React patterns, Zustand, ScrollTrigger animation
+              timelines, and high-throughput WebRTC (for
+              <span class="text-pink-300 font-semibold">FlashDrop ⚡</span>).
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- NoScript fallback -->
-  <noscript>
-    <div style="max-width:780px;margin:1rem auto;padding:1rem;border-radius:12px;border:1px solid #888;color:#eee;background:#111;">
-      JavaScript is disabled. The site works, but animations and form enhancements are off.
-    </div>
-  </noscript>
+    <!-- SKILLS MARQUEE -->
+    <!-- Devicon CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
 
-  <!-- GSAP (local fallback) -->
-  <script>
-    // Graceful loader: try to load local GSAP files via script tags dynamically.
-    // If they are missing, skip animation features without throwing errors.
-    (function loadGSAP(){
-      function loadScript(src, onload, onerror){
-        const s = document.createElement('script');
-        s.src = src;
-        s.onload = onload;
-        s.onerror = onerror;
-        s.defer = true;
-        document.head.appendChild(s);
-      }
-      // Try local files (you already have these referenced in original file)
-      if (!window.gsap) {
-        loadScript('./node_modules/gsap/dist/gsap.min.js', function(){ console.log('GSAP loaded'); }, function(){ console.warn('GSAP not found locally. Animations will be limited.'); });
-      }
-      if (!window.ScrollTrigger) {
-        loadScript('./node_modules/gsap/dist/ScrollTrigger.min.js', function(){ console.log('ScrollTrigger loaded'); }, function(){ /* no-op */ });
-      }
-    })();
-  </script>
+    <section id="skills" class="px-4 sm:px-6 md:px-10">
+      <div class="max-w-7xl mx-auto">
+        <!-- Heading -->
+        <h2
+          class="section-title text-4xl md:text-5xl font-extrabold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-300 drop-shadow-lg"
+        >
+          ⚡ Skills & Tools
+        </h2>
 
- <script>
-  // =============================================================
-  // UTILITIES + GLOBAL
-  // =============================================================
-  const $ = (sel, parent=document) => parent.querySelector(sel);
-  const $$ = (sel, parent=document) => Array.from(parent.querySelectorAll(sel));
+        <!-- Marquee -->
+        <div
+          class="marquee glass rounded-3xl p-6 shadow-xl border border-white/10 backdrop-blur-xl overflow-hidden relative"
+        >
+          <div
+            class="marquee-track flex gap-4 items-center"
+            role="list"
+            aria-label="skills"
+          >
+            <!-- HTML5 -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-pink-500/20 hover:to-purple-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-html5-plain colored text-xl"></i> HTML5
+            </span>
 
-  // Defensive DOM ready helper
-  const onReady = (fn) => {
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
-    else fn();
-  };
+            <!-- CSS3 -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-blue-500/20 hover:to-cyan-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-css3-plain colored text-xl"></i> CSS3
+            </span>
 
-  onReady(() => {
-    // ===== Year =====
-    const yearEl = $('#year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+            <!-- JavaScript -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-yellow-500/20 hover:to-orange-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-javascript-plain colored text-xl"></i>
+              JavaScript
+            </span>
 
-    // ===== Mobile menu =====
-    const menuBtn = $('#menu-btn');
-    const menu = $('#menu');
-    if (menuBtn && menu) {
-      const toggleMenu = (open) => {
-        if (typeof open === 'boolean') {
-          menu.classList.toggle('hidden', !open);
-          menuBtn.setAttribute('aria-expanded', String(Boolean(open)));
-          menu.setAttribute('aria-hidden', String(!open));
-        } else {
-          const isHidden = menu.classList.toggle('hidden');
-          menuBtn.setAttribute('aria-expanded', String(!isHidden));
-          menu.setAttribute('aria-hidden', String(isHidden));
+            <!-- Tailwind -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-cyan-500/20 hover:to-blue-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-tailwindcss-plain colored text-xl"></i> Tailwind
+            </span>
+
+            <!-- React -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-blue-500/20 hover:to-indigo-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-react-original colored text-xl"></i> React
+            </span>
+
+            <!-- GSAP (no Devicon, using FontAwesome bolt icon) -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-green-500/20 hover:to-emerald-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="fa-solid fa-bolt text-green-400"></i> GSAP
+            </span>
+
+            <!-- Node.js -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-green-500/20 hover:to-lime-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-nodejs-plain colored text-xl"></i> Node.js
+            </span>
+
+            <!-- Express -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-gray-500/20 hover:to-gray-700/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-express-original text-gray-300 text-xl"></i>
+              Express
+            </span>
+
+            <!-- Git -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-orange-500/20 hover:to-red-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-git-plain colored text-xl"></i> Git
+            </span>
+
+            <!-- Vite -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-purple-500/20 hover:to-pink-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-vitejs-plain colored text-xl"></i> Vite
+            </span>
+
+            <!-- MongoDB -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-green-500/20 hover:to-teal-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="devicon-mongodb-plain colored text-xl"></i> MongoDB
+            </span>
+
+            <!-- WebRTC (no Devicon, using FontAwesome video icon) -->
+            <span
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-red-500/20 hover:to-pink-500/20 hover:scale-105 transition-all duration-300 shadow-md cursor-default"
+              role="listitem"
+            >
+              <i class="fa-solid fa-video text-pink-400"></i> WebRTC
+            </span>
+          </div>
+
+          <!-- Gradient fade edges -->
+          <div
+            class="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-gray-900/80 to-transparent pointer-events-none"
+          ></div>
+          <div
+            class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-gray-900/80 to-transparent pointer-events-none"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FontAwesome for extra icons -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- PROJECTS -->
+    <section
+      id="projects"
+      class="px-4 sm:px-6 md:px-10 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"
+    >
+      <div class="max-w-6xl mx-auto text-center">
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-300"
+        >
+          My Projects
+        </h2>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <!-- Project 1 -->
+          <a
+            href="https://flashdrop-t3v0.onrender.com/"
+            target="_blank"
+            class="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            <h3
+              class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-purple-400 transition-colors"
+            >
+              FlashDrop File Transfer App
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              A high-speed P2P file transfer app with LAN and internet modes,
+              optimized for large files (10GB+).
+            </p>
+            <span
+              class="mt-6 inline-block text-purple-400 font-semibold group-hover:translate-x-2 transition-transform"
+            >
+              View Project →
+            </span>
+          </a>
+
+          <!-- Project 2 -->
+          <a
+            href="https://healthplus-atup.onrender.com/"
+            target="_blank"
+            class="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            <h3
+              class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-pink-400 transition-colors"
+            >
+              Health Plus Medical Store Website
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              A modern, responsive website for a medical store, featuring a
+              sleek UI and product showcase.
+            </p>
+            <span
+              class="mt-6 inline-block text-pink-400 font-semibold group-hover:translate-x-2 transition-transform"
+            >
+              View Project →
+            </span>
+          </a>
+
+          <!-- Project 3 -->
+          <a
+            href="https://smart-ka46.onrender.com/"
+            target="_blank"
+            class="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            <h3
+              class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-cyan-400 transition-colors"
+            >
+              Aadhaar PDF Data Extractor
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              A Node.js app that extracts Aadhaar PDF data and generates smart
+              front/back card images.
+            </p>
+            <span
+              class="mt-6 inline-block text-cyan-400 font-semibold group-hover:translate-x-2 transition-transform"
+            >
+              View Project →
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES / SKILLS -->
+    <section
+      id="features"
+      class="px-4 sm:px-6 md:px-10 py-16 relative overflow-hidden"
+    >
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Title -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-14 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-300 drop-shadow-lg"
+        >
+          What I Offer
+        </h2>
+
+        <!-- Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="glass rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 hover:border-cyan-300/40 text-center"
+          >
+            <div class="text-5xl mb-4">💻</div>
+            <h3 class="text-xl font-semibold text-gray-100 mb-2">
+              Web Development
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Clean, responsive, and modern websites using HTML, CSS,
+              JavaScript, and React.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="glass rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 hover:border-purple-300/40 text-center"
+          >
+            <div class="text-5xl mb-4">⚡</div>
+            <h3 class="text-xl font-semibold text-gray-100 mb-2">
+              Fast Performance
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Optimized code and smooth animations for lightning-fast load
+              times.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="glass rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-white/20 hover:border-pink-300/40 text-center"
+          >
+            <div class="text-5xl mb-4">🎨</div>
+            <h3 class="text-xl font-semibold text-gray-100 mb-2">
+              Beautiful Design
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Modern, elegant, and user-friendly designs that impress clients
+              and users alike.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft background gradient -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent pointer-events-none"
+      ></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="px-4 sm:px-6 md:px-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-300"
+        >
+          Contact Me
+        </h2>
+        <p class="text-gray-300 mb-8">
+          Let’s build something amazing together!
+        </p>
+
+        <form
+          id="contact-form"
+          class="max-w-2xl mx-auto grid md:grid-cols-2 gap-4 text-left glass rounded-2xl p-6"
+          novalidate
+        >
+          <div class="md:col-span-1">
+            <label for="name" class="text-sm text-gray-400">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              class="w-full mt-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-purple-400 transition"
+              required
+              aria-required="true"
+              autocomplete="name"
+            />
+            <p
+              class="mt-1 text-xs text-red-300 hidden"
+              id="name-error"
+              role="alert"
+            >
+              Please enter your name.
+            </p>
+          </div>
+          <div class="md:col-span-1">
+            <label for="email" class="text-sm text-gray-400">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@email.com"
+              class="w-full mt-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-purple-400 transition"
+              required
+              aria-required="true"
+              autocomplete="email"
+            />
+            <p
+              class="mt-1 text-xs text-red-300 hidden"
+              id="email-error"
+              role="alert"
+            >
+              Enter a valid email.
+            </p>
+          </div>
+          <div class="md:col-span-2">
+            <label for="message" class="text-sm text-gray-400">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Tell me about your project..."
+              class="w-full mt-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-purple-400 transition"
+              required
+              aria-required="true"
+            ></textarea>
+            <p
+              class="mt-1 text-xs text-red-300 hidden"
+              id="message-error"
+              role="alert"
+            >
+              Please write a short message.
+            </p>
+          </div>
+          <div
+            class="md:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-3"
+          >
+            <a
+              href="mailto:tauhidsaifi26748@gmail.com"
+              class="btn btn-outline magnetic"
+              id="email-direct"
+              >Email Directly</a
+            >
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <button
+                type="button"
+                id="copy-email"
+                class="btn btn-outline magnetic flex-1 sm:flex-none"
+              >
+                Copy Email
+              </button>
+              <button type="submit" class="btn magnetic flex-1 sm:flex-none">
+                Send Message
+              </button>
+            </div>
+          </div>
+          <p
+            id="form-status"
+            class="md:col-span-2 text-sm text-center text-green-300 hidden"
+            role="status"
+          >
+            Thanks! I’ll get back to you soon.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- RESUME / CTA -->
+    <section id="resume" class="px-4 sm:px-6 md:px-10">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
+        <!-- CV Download Card -->
+        <div
+          class="glass rounded-2xl p-6 md:p-8 shadow-xl border border-white/10 backdrop-blur-lg transition-all duration-300 hover:scale-[1.02]"
+        >
+          <h3
+            class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-md"
+          >
+            Grab My CV
+          </h3>
+          <p class="text-gray-300 mt-3 leading-relaxed">
+            One page of <span class="text-white font-semibold">skills</span>,
+            <span class="text-white font-semibold">stack</span>, and
+            <span class="text-white font-semibold">career highlights</span>.
+            Perfect for quick review.
+          </p>
+          <a
+            href="./resume/resume.pdf"
+            target="_blank"
+            class="btn mt-5 magnetic bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/40 hover:to-blue-500/40 border border-white/10 transition-all duration-300"
+            download
+            rel="nofollow noopener"
+          >
+            Download CV
+          </a>
+        </div>
+
+        <!-- Availability Card with Live Clock - Modern Version -->
+        <div
+          class="glass rounded-2xl p-6 md:p-8 shadow-xl border border-white/10 backdrop-blur-lg transition-all duration-300 hover:scale-[1.02]"
+        >
+          <!-- Header -->
+          <h3
+            class="text-2xl sm:text-3xl font-extrabold text-white drop-shadow-md"
+          >
+            Availability
+          </h3>
+          <p class="text-gray-300 mt-3 leading-relaxed">
+            🚀 Open for
+            <span class="font-semibold text-white">freelance</span> &
+            <span class="font-semibold text-white">full-time</span> roles. 🌍
+            Based in <span class="font-semibold text-white">India</span>, fully
+            remote-friendly.
+          </p>
+
+          <!-- Live Clock -->
+          <div class="mt-6 text-center">
+            <div
+              id="clock"
+              class="text-3xl sm:text-4xl font-bold text-white drop-shadow-md"
+            >
+              --:--:--
+            </div>
+            <div class="text-gray-400 text-sm sm:text-xs mt-1">
+              Current IST Time
+            </div>
+          </div>
+
+          <!-- Info Section (modern) -->
+          <div
+            class="mt-6 flex flex-col sm:flex-row justify-between gap-4 text-center"
+          >
+            <!-- Card 1 -->
+            <div
+              class="flex-1 rounded-xl bg-white/10 p-4 hover:bg-white/20 transition-all duration-300 shadow-md"
+            >
+              <div class="text-xl sm:text-2xl font-bold text-white mb-1">
+                🕒 IST
+              </div>
+              <div class="text-gray-400 text-xs">Time Zone</div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="flex-1 rounded-xl bg-white/10 p-4 hover:bg-white/20 transition-all duration-300 shadow-md"
+            >
+              <div class="text-xl sm:text-2xl font-bold text-white mb-1">
+                GMT+5:30
+              </div>
+              <div class="text-gray-400 text-xs">Offset</div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="flex-1 rounded-xl bg-white/10 p-4 hover:bg-white/20 transition-all duration-300 shadow-md"
+            >
+              <div class="text-xl sm:text-2xl font-bold text-white mb-1">
+                ~40h
+              </div>
+              <div class="text-gray-400 text-xs">Weekly</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Clock Script -->
+        <script>
+          function updateClock() {
+            const clock = document.getElementById("clock");
+            const now = new Date();
+            const istOffset = 5.5 * 60; // minutes
+            const istTime = new Date(
+              now.getTime() + (istOffset + now.getTimezoneOffset()) * 60000
+            );
+            const hours = String(istTime.getHours()).padStart(2, "0");
+            const minutes = String(istTime.getMinutes()).padStart(2, "0");
+            const seconds = String(istTime.getSeconds()).padStart(2, "0");
+            clock.textContent = `${hours}:${minutes}:${seconds}`;
+          }
+          setInterval(updateClock, 1000);
+          updateClock();
+        </script>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 text-center text-gray-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-4 glass rounded-2xl p-4"
+        >
+          <div>
+            © <span id="year"></span> <strong>Tohid</strong>. All rights
+            reserved.
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href="#home" class="text-gray-300 hover:text-white">Top ↑</a>
+            <a
+              href="https://www.instagram.com/tohid.saif/"
+              target="_blank"
+              class="text-gray-300 hover:text-white"
+              aria-label="Twitter profile"
+              >Instagram</a
+            >
+            <a
+              href="https://github.com/tauhidsaif"
+              target="_blank"
+              class="text-gray-300 hover:text-white"
+              aria-label="GitHub profile"
+              >GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/tohid-saif-018877219/"
+              target="_blank"
+              class="text-gray-300 hover:text-white"
+              aria-label="LinkedIn profile"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- NoScript fallback -->
+    <noscript>
+      <div
+        style="
+          max-width: 780px;
+          margin: 1rem auto;
+          padding: 1rem;
+          border-radius: 12px;
+          border: 1px solid #888;
+          color: #eee;
+          background: #111;
+        "
+      >
+        JavaScript is disabled. The site works, but animations and form
+        enhancements are off.
+      </div>
+    </noscript>
+
+    <!-- GSAP (local fallback) -->
+    <script>
+      // Graceful loader: try to load local GSAP files via script tags dynamically.
+      // If they are missing, skip animation features without throwing errors.
+      (function loadGSAP() {
+        function loadScript(src, onload, onerror) {
+          const s = document.createElement("script");
+          s.src = src;
+          s.onload = onload;
+          s.onerror = onerror;
+          s.defer = true;
+          document.head.appendChild(s);
         }
+        // Try local files (you already have these referenced in original file)
+        if (!window.gsap) {
+          loadScript(
+            "./node_modules/gsap/dist/gsap.min.js",
+            function () {
+              console.log("GSAP loaded");
+            },
+            function () {
+              console.warn(
+                "GSAP not found locally. Animations will be limited."
+              );
+            }
+          );
+        }
+        if (!window.ScrollTrigger) {
+          loadScript(
+            "./node_modules/gsap/dist/ScrollTrigger.min.js",
+            function () {
+              console.log("ScrollTrigger loaded");
+            },
+            function () {
+              /* no-op */
+            }
+          );
+        }
+      })();
+    </script>
+
+    <script>
+      // =============================================================
+      // UTILITIES + GLOBAL
+      // =============================================================
+      const $ = (sel, parent = document) => parent.querySelector(sel);
+      const $$ = (sel, parent = document) =>
+        Array.from(parent.querySelectorAll(sel));
+
+      // Defensive DOM ready helper
+      const onReady = (fn) => {
+        if (document.readyState === "loading")
+          document.addEventListener("DOMContentLoaded", fn);
+        else fn();
       };
-      menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-      });
-      $$('#menu a').forEach(a => a.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menu.setAttribute('aria-hidden', 'true');
-      }));
-      document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && e.target !== menuBtn && !menu.classList.contains('hidden')) {
-          menu.classList.add('hidden');
-          menuBtn.setAttribute('aria-expanded', 'false');
-          menu.setAttribute('aria-hidden', 'true');
-        }
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
-          menu.classList.add('hidden');
-          menuBtn.setAttribute('aria-expanded', 'false');
-          menu.setAttribute('aria-hidden', 'true');
-          menuBtn.focus();
-        }
-      });
-    }
 
-    // ===== Header scroll shadow =====
-    const header = $('#site-header');
-    const onScrollHeader = () => {
-      const scrolled = window.scrollY > 24;
-      header.style.boxShadow = scrolled ? '0 10px 30px rgba(0,0,0,.35)' : '';
-    };
-    document.addEventListener('scroll', onScrollHeader, { passive: true });
-    onScrollHeader();
+      onReady(() => {
+        // ===== Year =====
+        const yearEl = $("#year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // ===== Cursor blob follow =====
-    const blob = $('#blob');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (blob) {
-      if (!prefersReducedMotion) {
-        let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-        window.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
-        const lerp = (a, b, n) => (1 - n) * a + n * b;
-        let bx = mx, by = my;
-        (function animateBlob(){
-          bx = lerp(bx, mx, 0.08);
-          by = lerp(by, my, 0.08);
-          const tx = Math.max(0, Math.min(window.innerWidth, bx)) - 40;
-          const ty = Math.max(0, Math.min(window.innerHeight, by)) - 40;
-          blob.style.transform = `translate(${tx}px, ${ty}px)`;
-          requestAnimationFrame(animateBlob);
-        })();
-      } else {
-        blob.style.opacity = .15;
-      }
-    }
+        // ===== Mobile menu =====
+        const menuBtn = $("#menu-btn");
+        const menu = $("#menu");
+        if (menuBtn && menu) {
+          const toggleMenu = (open) => {
+            const isCurrentlyOpen = menu.classList.contains("cool-active");
+            if (typeof open === "boolean") {
+              if (open && !isCurrentlyOpen) {
+                menu.classList.remove("hidden", "cool-closing");
+                void menu.offsetWidth; // reflow for animation
+                menu.classList.add("cool-active");
+              } else if (!open && isCurrentlyOpen) {
+                menu.classList.remove("cool-active");
+                menu.classList.add("cool-closing");
+                setTimeout(() => {
+                  menu.classList.add("hidden");
+                  menu.classList.remove("cool-closing");
+                }, 350);
+              }
+            } else {
+              if (
+                menu.classList.contains("hidden") ||
+                menu.classList.contains("cool-closing")
+              ) {
+                menu.classList.remove("hidden", "cool-closing");
+                void menu.offsetWidth;
+                menu.classList.add("cool-active");
+              } else {
+                menu.classList.remove("cool-active");
+                menu.classList.add("cool-closing");
+                setTimeout(() => {
+                  menu.classList.add("hidden");
+                  menu.classList.remove("cool-closing");
+                }, 350);
+              }
+            }
+          };
 
-    // ===== Magnetic buttons =====
-    const magnets = $$('.magnetic');
-    magnets.forEach((mag) => {
-      let pointerActive = false;
-      mag.addEventListener('pointerenter', () => { pointerActive = true; });
-      mag.addEventListener('pointerleave', () => { pointerActive = false; mag.style.transform = ''; });
-      mag.addEventListener('pointermove', (e) => {
-        if (!pointerActive) return;
-        const rect = mag.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        const strength = 20;
-        mag.style.transform = `translate(${x / strength}px, ${y / strength}px)`;
-      });
-      mag.addEventListener('blur', () => { mag.style.transform = ''; });
-    });
-
-    // ===== Copy email helper =====
-    const emailAddress = 'tauhidsaifi26748@gmail.com';
-    const copyBtn = $('#copy-email');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', async () => {
-        try {
-          if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(emailAddress);
-          } else {
-            const ta = document.createElement('textarea');
-            ta.value = emailAddress;
-            ta.setAttribute('readonly', '');
-            ta.style.position = 'absolute';
-            ta.style.left = '-9999px';
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-          }
-          const btn = copyBtn;
-          const old = btn.textContent;
-          btn.textContent = 'Copied!';
-          btn.disabled = true;
-          setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 1200);
-        } catch (e) {
-          try { prompt('Copy email', emailAddress); } catch (_) { alert('Copy failed. Email: ' + emailAddress); }
-        }
-      });
-    }
-    const emailDirect = $('#email-direct');
-    if (emailDirect) emailDirect.setAttribute('href', `mailto:${emailAddress}`);
-
-    // ===== Contact Form (Formspree) =====
-    const form = $('#contact-form');
-    if (form) {
-      const status = $('#form-status');
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = $('#name');
-        const email = $('#email');
-        const message = $('#message');
-        let ok = true;
-        if (!name.value.trim()) { $('#name-error').classList.remove('hidden'); ok=false; } else { $('#name-error').classList.add('hidden'); }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { $('#email-error').classList.remove('hidden'); ok=false; } else { $('#email-error').classList.add('hidden'); }
-        if (!message.value.trim()) { $('#message-error').classList.remove('hidden'); ok=false; } else { $('#message-error').classList.add('hidden'); }
-        if (!ok) return;
-
-        const formData = new FormData(form);
-        status.textContent = 'Sending...';
-        status.classList.remove('hidden');
-
-        try {
-          const response = await fetch('https://formspree.io/f/mwpqzvpl', {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
+          menuBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleMenu();
           });
-          if (response.ok) {
-            status.textContent = '✅ Thanks! I’ll get back to you soon.';
-            form.reset();
-          } else {
-            status.textContent = '❌ Oops! Something went wrong. Please try again.';
-          }
-        } catch (err) {
-          status.textContent = '❌ Oops! Something went wrong. Please try again.';
+          $$("#menu a").forEach((a) =>
+            a.addEventListener("click", () => {
+              menu.classList.add("hidden");
+              menuBtn.setAttribute("aria-expanded", "false");
+              menu.setAttribute("aria-hidden", "true");
+            })
+          );
+          document.addEventListener("click", (e) => {
+            if (
+              !menu.contains(e.target) &&
+              e.target !== menuBtn &&
+              !menu.classList.contains("hidden")
+            ) {
+              menu.classList.add("hidden");
+              menuBtn.setAttribute("aria-expanded", "false");
+              menu.setAttribute("aria-hidden", "true");
+            }
+          });
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !menu.classList.contains("hidden")) {
+              menu.classList.add("hidden");
+              menuBtn.setAttribute("aria-expanded", "false");
+              menu.setAttribute("aria-hidden", "true");
+              menuBtn.focus();
+            }
+          });
         }
-        setTimeout(() => status.classList.add('hidden'), 4000);
-      });
-    }
 
-    // =============================================================
-    // ...rest of your existing script remains untouched...
-    // =============================================================
-  }); // onReady end
-</script>
+        // ===== Header scroll shadow =====
+        const header = $("#site-header");
+        const onScrollHeader = () => {
+          const scrolled = window.scrollY > 24;
+          header.style.boxShadow = scrolled
+            ? "0 10px 30px rgba(0,0,0,.35)"
+            : "";
+        };
+        document.addEventListener("scroll", onScrollHeader, { passive: true });
+        onScrollHeader();
 
+        // ===== Cursor blob follow =====
+        const blob = $("#blob");
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+        if (blob) {
+          if (!prefersReducedMotion) {
+            let mx = window.innerWidth / 2,
+              my = window.innerHeight / 2;
+            window.addEventListener(
+              "mousemove",
+              (e) => {
+                mx = e.clientX;
+                my = e.clientY;
+              },
+              { passive: true }
+            );
+            const lerp = (a, b, n) => (1 - n) * a + n * b;
+            let bx = mx,
+              by = my;
+            (function animateBlob() {
+              bx = lerp(bx, mx, 0.08);
+              by = lerp(by, my, 0.08);
+              const tx = Math.max(0, Math.min(window.innerWidth, bx)) - 40;
+              const ty = Math.max(0, Math.min(window.innerHeight, by)) - 40;
+              blob.style.transform = `translate(${tx}px, ${ty}px)`;
+              requestAnimationFrame(animateBlob);
+            })();
+          } else {
+            blob.style.opacity = 0.15;
+          }
+        }
 
-  <!-- Large comment block to preserve/increase file length as requested.
+        // ===== Magnetic buttons =====
+        const magnets = $$(".magnetic");
+        magnets.forEach((mag) => {
+          let pointerActive = false;
+          mag.addEventListener("pointerenter", () => {
+            pointerActive = true;
+          });
+          mag.addEventListener("pointerleave", () => {
+            pointerActive = false;
+            mag.style.transform = "";
+          });
+          mag.addEventListener("pointermove", (e) => {
+            if (!pointerActive) return;
+            const rect = mag.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const strength = 20;
+            mag.style.transform = `translate(${x / strength}px, ${
+              y / strength
+            }px)`;
+          });
+          mag.addEventListener("blur", () => {
+            mag.style.transform = "";
+          });
+        });
+
+        // ===== Copy email helper =====
+        const emailAddress = "tauhidsaifi26748@gmail.com";
+        const copyBtn = $("#copy-email");
+        if (copyBtn) {
+          copyBtn.addEventListener("click", async () => {
+            try {
+              if (
+                navigator &&
+                navigator.clipboard &&
+                navigator.clipboard.writeText
+              ) {
+                await navigator.clipboard.writeText(emailAddress);
+              } else {
+                const ta = document.createElement("textarea");
+                ta.value = emailAddress;
+                ta.setAttribute("readonly", "");
+                ta.style.position = "absolute";
+                ta.style.left = "-9999px";
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand("copy");
+                document.body.removeChild(ta);
+              }
+              const btn = copyBtn;
+              const old = btn.textContent;
+              btn.textContent = "Copied!";
+              btn.disabled = true;
+              setTimeout(() => {
+                btn.textContent = old;
+                btn.disabled = false;
+              }, 1200);
+            } catch (e) {
+              try {
+                prompt("Copy email", emailAddress);
+              } catch (_) {
+                alert("Copy failed. Email: " + emailAddress);
+              }
+            }
+          });
+        }
+        const emailDirect = $("#email-direct");
+        if (emailDirect)
+          emailDirect.setAttribute("href", `mailto:${emailAddress}`);
+
+        // ===== Contact Form (Formspree) =====
+        const form = $("#contact-form");
+        if (form) {
+          const status = $("#form-status");
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = $("#name");
+            const email = $("#email");
+            const message = $("#message");
+            let ok = true;
+            if (!name.value.trim()) {
+              $("#name-error").classList.remove("hidden");
+              ok = false;
+            } else {
+              $("#name-error").classList.add("hidden");
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+              $("#email-error").classList.remove("hidden");
+              ok = false;
+            } else {
+              $("#email-error").classList.add("hidden");
+            }
+            if (!message.value.trim()) {
+              $("#message-error").classList.remove("hidden");
+              ok = false;
+            } else {
+              $("#message-error").classList.add("hidden");
+            }
+            if (!ok) return;
+
+            const formData = new FormData(form);
+            status.textContent = "Sending...";
+            status.classList.remove("hidden");
+
+            try {
+              const response = await fetch("https://formspree.io/f/mwpqzvpl", {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+              });
+              if (response.ok) {
+                status.textContent = "✅ Thanks! I’ll get back to you soon.";
+                form.reset();
+              } else {
+                status.textContent =
+                  "❌ Oops! Something went wrong. Please try again.";
+              }
+            } catch (err) {
+              status.textContent =
+                "❌ Oops! Something went wrong. Please try again.";
+            }
+            setTimeout(() => status.classList.add("hidden"), 4000);
+          });
+        }
+
+        // =============================================================
+        // ...rest of your existing script remains untouched...
+        // =============================================================
+      }); // onReady end
+    </script>
+
+    <!-- Large comment block to preserve/increase file length as requested.
        This block intentionally contains a lot of commented lines to ensure
        the file is larger than the original and to provide documentation,
        tips, and future-to-do items for your portfolio site.
@@ -926,7 +1674,7 @@
        reminders, and optional snippet ideas (all commented out).
   -->
 
-  <!--
+    <!--
     ============================================================================
     TODO / NOTES / SNIPPETS (COMMENTED)
     - Replace placeholder email 'tauhidsaifi26748@gmail.com' with your real contact email.
@@ -974,55 +1722,55 @@
     ============================================================================
   -->
 
-  <!-- Padding the file with many commented blank lines to ensure "bigger" file size. -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- ------------------------------------------------------------------------- -->
-  <!-- End of file padding block -->
-</body>
+    <!-- Padding the file with many commented blank lines to ensure "bigger" file size. -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------- -->
+    <!-- End of file padding block -->
+  </body>
 </html>

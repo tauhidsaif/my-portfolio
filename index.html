@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0A0F2C">
+    <meta name="theme-color" content="#0A0F2C" />
     <title>Tohid | Portfolio</title>
 
     <!-- Tailwind CSS -->
@@ -382,6 +382,13 @@
   </head>
 
   <body>
+    <!-- Adding a scrollbar that goes with content-->
+
+    <div
+      id="scroll-bar"
+      class="fixed top-0 left-0 h-1  bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 w-0 z-[9999] transition-all duration-200 ease-linear"
+    ></div>
+
     <!-- Skip to content (accessibility) -->
     <a
       href="#home"
@@ -1899,6 +1906,18 @@
       // =============================================================
       // UTILITIES + GLOBAL
       // =============================================================
+
+      // Logic For Top Scroll-Bar
+
+      window.addEventListener("scroll", () =>{
+        const bar = document.getElementById("scroll-bar");
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / (docHeight-winHeight))*100;
+        bar.style.width = scrollPercent + "%";
+      })
+
       const $ = (sel, parent = document) => parent.querySelector(sel);
       const $$ = (sel, parent = document) =>
         Array.from(parent.querySelectorAll(sel));

@@ -1243,9 +1243,6 @@
             <span class="chip"
               ><i class="fa-solid fa-video text-pink-400"></i> WebRTC</span
             >
-
-
-
           </div>
         </div>
       </div>
@@ -1287,7 +1284,7 @@
           display: flex;
           gap: 1rem;
           width: max-content;
-         animation: scroll-left 60s linear infinite; /* slower */
+          animation: scroll-left 60s linear infinite; /* slower */
           will-change: transform;
         }
 
@@ -1785,10 +1782,14 @@
             const istTime = new Date(
               now.getTime() + (istOffset + now.getTimezoneOffset()) * 60000
             );
-            const hours = String(istTime.getHours()).padStart(2, "0");
+
+            let hours = istTime.getHours();
             const minutes = String(istTime.getMinutes()).padStart(2, "0");
             const seconds = String(istTime.getSeconds()).padStart(2, "0");
-            clock.textContent = `${hours}:${minutes}:${seconds}`;
+            const ampm = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12 || 12; // convert 0 -> 12 for midnight
+
+            clock.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
           }
           setInterval(updateClock, 1000);
           updateClock();

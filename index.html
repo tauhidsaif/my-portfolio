@@ -13,10 +13,7 @@
     <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css" />
 
     <!-- Favicon (optional) -->
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>"
-    />
+    <link rel="icon" type="image/png" href="resume/tohid_favicon.png" />
 
     <style>
       /* =============================================================
@@ -386,7 +383,7 @@
 
     <div
       id="scroll-bar"
-      class="fixed top-0 left-0 h-1  bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 w-0 z-[9999] transition-all duration-200 ease-linear"
+      class="fixed top-0 left-0 h-1 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 w-0 z-[9999] transition-all duration-200 ease-linear"
     ></div>
 
     <!-- Skip to content (accessibility) -->
@@ -1469,27 +1466,24 @@
 
           <a
             href="https://text-tohid.netlify.app/"
-            target = "_blank"
-            class ="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadown-2xl hover:scale-105 transition-all duration-300"
+            target="_blank"
+            class="group block p-8 rounded-3xl bg-gray-800 border border-gray-700 shadow-xl hover:shadown-2xl hover:scale-105 transition-all duration-300"
           >
-          <h3
-          class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-green-300 transition-colors"
-          >
-          Text Utiliser
-          </h3>
-          <p
-          class="text-gray-300 leading-relaxed"
-          >
-          A simple text utility app for converting text to uppercase, lowercase,
-          and removing extra spaces etc.
-          <span
-          class="mt-6 inline-block text-green-300 font-semibold group-hover:translate-x-2 transition-transform"
-          >
-          View Project →
-          </span>
-          </p>
+            <h3
+              class="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-green-300 transition-colors"
+            >
+              Text Utiliser
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              A simple text utility app for converting text to uppercase,
+              lowercase, and removing extra spaces etc.
+              <span
+                class="mt-6 inline-block text-green-300 font-semibold group-hover:translate-x-2 transition-transform"
+              >
+                View Project →
+              </span>
+            </p>
           </a>
-
         </div>
       </div>
     </section>
@@ -1933,14 +1927,14 @@
 
       // Logic For Top Scroll-Bar
 
-      window.addEventListener("scroll", () =>{
+      window.addEventListener("scroll", () => {
         const bar = document.getElementById("scroll-bar");
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight;
         const winHeight = document.documentElement.clientHeight;
-        const scrollPercent = (scrollTop / (docHeight-winHeight))*100;
+        const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
         bar.style.width = scrollPercent + "%";
-      })
+      });
 
       const $ = (sel, parent = document) => parent.querySelector(sel);
       const $$ = (sel, parent = document) =>
@@ -2202,113 +2196,5 @@
         // =============================================================
       }); // onReady end
     </script>
-
-    <!-- Large comment block to preserve/increase file length as requested.
-       This block intentionally contains a lot of commented lines to ensure
-       the file is larger than the original and to provide documentation,
-       tips, and future-to-do items for your portfolio site.
-       
-       You asked to "make it bigger" — below are many helpful notes,
-       reminders, and optional snippet ideas (all commented out).
-  -->
-
-    <!--
-    ============================================================================
-    TODO / NOTES / SNIPPETS (COMMENTED)
-    - Replace placeholder email 'tauhidsaifi26748@gmail.com' with your real contact email.
-    - Replace the Download PDF links with a valid /assets/Tohid_CV.pdf file.
-    - If you host externally, consider inlining critical CSS for faster first-paint.
-    - Consider adding a small contact backend endpoint to handle submissions:
-        POST /api/contact { name, email, message } -> email via server or log to DB.
-    - Consider adding analytics and performance monitoring tools (Vercel, Netlify, GA4).
-    - If you plan to deploy to GitHub Pages, update paths (remove leading ./node_modules).
-    - For better image perf, use srcset and modern formats (webp/avif).
-    - Example fetch contact snippet:
-        fetch('/api/contact', { method: 'POST', body: JSON.stringify({name,email,message}), headers:{'Content-Type':'application/json'} })
-          .then(res => res.json()).then(()=>{ /* success UI */ }).catch(()=>{ /* error UI */ });
-    - For large-screen hero layouts add CSS clamp for font-size:
-        font-size: clamp(2.2rem, 5vw, 4.25rem);
-    - GSAP: to use CDN instead of node_modules use:
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    - Accessibility checklist:
-        * semantic HTML (sections, headers)
-        * ARIA attributes for dynamic elements (menu, dialog)
-        * focus management after opening/closing modals
-        * meaningful alt text for images
-    - Responsive testing: check at 320, 375, 414, 768, 1024, 1280 widths.
-    - Lighthouse performance suggestions:
-        * reduce unused JS
-        * compress images with mozjpeg/avif
-        * use HTTP2 / Brotli for assets
-    - Code formatting: run html-beautify or Prettier to keep code consistent.
-    - You can convert sections to separate components if migrating to React/Vite later.
-    - Example: lazy-loading heavy hero animations with IntersectionObserver to avoid initial CPU.
-    - Future features you might add:
-        * Dark/light theme auto by OS preference
-        * Inline resume section with PDF viewer
-        * Animations toggle (for users who prefer less motion)
-        * Contact form reCAPTCHA or honeypot field
-    - Debugging tips:
-        * use `document.querySelectorAll('.class')` in devtools to inspect layout
-        * temporarily add outlines: * { outline: 1px solid rgba(255,0,0,0.12) }
-    - Helpful utilities:
-        * image CDN (imgix, Cloudinary)
-        * fonts - use local or variable fonts for smaller weight
-        * bundle analyzing tool (webpack-bundle-analyzer)
-    - Keep a changelog at /CHANGELOG.md to track updates over time.
-    ============================================================================
-  -->
-
-    <!-- Padding the file with many commented blank lines to ensure "bigger" file size. -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- ------------------------------------------------------------------------- -->
-    <!-- End of file padding block -->
   </body>
 </html>
